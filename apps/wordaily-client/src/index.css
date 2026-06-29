@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sky: #6EC6FF;
+    --cyan: #21E0D6;
+    --mint: #39E5B7;
+    --violet: #7B49FF;
+    --purple: #28104B;
+    --ink: #17012E;
+    --yellow: #FFD94A;
+    --magenta: #FF4DB8;
+    --lilac: #E9D6FF;
+    --cream: #FFF9F2;
+    --success: #48E084;
+    --danger: #FF4B64;
+    --shared: #FF9B52;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-height: 100%;
+    background: #39C1FF;
+  }
+
+  body {
+    @apply bg-game-bg text-game-ink font-game m-0 p-0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background:
+      radial-gradient(circle at 14% 7%, rgba(255,255,255,.38) 0 11%, transparent 12%),
+      linear-gradient(180deg, #35BFFF 0%, #65CFFF 48%, #7B77FF 100%);
+    overscroll-behavior: none;
+  }
+
+  #root {
+    @apply w-screen;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  button, input {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .game-screen {
+    @apply relative min-h-screen w-screen overflow-x-hidden text-game-ink;
+    min-height: 100dvh;
+    background:
+      radial-gradient(circle at 18% 8%, rgba(255,255,255,.42) 0 10%, transparent 11%),
+      linear-gradient(180deg, #39C1FF 0%, #65D9FF 48%, #8175FF 100%);
+    /* safe areas iOS : évite que la home bar recouvre le contenu */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Utilitaire safe-area bottom pour les éléments en bas d'écran */
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 12px);
+  }
+  .mb-safe {
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+
+  .game-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.16) 2px, transparent 2px),
+      linear-gradient(90deg, rgba(255,255,255,.14) 2px, transparent 2px);
+    background-size: 52px 52px;
+    opacity: .26;
+  }
+
+  .game-content {
+    @apply relative z-10;
+  }
+
+  .cartoon-card {
+    @apply bg-game-cream border-4 border-game-purple rounded-[28px] shadow-cartoon;
+  }
+
+  .cartoon-panel {
+    @apply bg-white/95 border-4 border-game-purple rounded-[28px] shadow-cartoon;
+  }
+
+  .cartoon-title {
+    @apply font-display font-extrabold leading-none;
+    -webkit-text-stroke: 4px var(--purple);
+    paint-order: stroke fill;
+  }
+
+  .cartoon-title-sm {
+    @apply font-display font-extrabold leading-none;
+    -webkit-text-stroke: 2px var(--purple);
+    paint-order: stroke fill;
+  }
+
+  .cell-tile {
+    @apply flex items-center justify-center rounded-2xl font-display font-extrabold text-white select-none
+           border-4 border-game-purple bg-game-violet transition-all duration-100 shadow-tile;
+    background: linear-gradient(180deg, #895DFF 0%, #6138D8 100%);
+  }
+
+  .btn-primary {
+    @apply bg-game-mint text-game-purple font-black py-3 px-8 rounded-[22px] text-xl
+           border-4 border-game-purple shadow-cartoon transition-transform cursor-pointer;
+    background: linear-gradient(180deg, #60F3D2 0%, #31D5B4 100%);
+    box-shadow: 0 7px 0 var(--ink), inset 0 -5px 0 rgba(23,1,46,.14), inset 0 3px 0 rgba(255,255,255,.48);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:active {
+    box-shadow: 0 3px 0 var(--ink), inset 0 -3px 0 rgba(23,1,46,.12);
+    transform: translateY(4px);
+  }
+
+  .btn-primary:disabled {
+    @apply opacity-55 cursor-not-allowed;
+    filter: grayscale(.2);
+  }
+
+  .btn-secondary {
+    @apply text-white font-black py-3 px-6 rounded-2xl text-xl
+           border-[3px] border-game-purple shadow-cartoon-sm transition-transform cursor-pointer;
+    background: linear-gradient(180deg, #8458FF 0%, #6432DF 100%);
+    box-shadow: 0 4px 0 var(--ink), inset 0 3px 0 rgba(255,255,255,.3);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--ink), inset 0 2px 0 rgba(255,255,255,.25);
+  }
+
+  .word-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-black border-2 border-game-purple shadow-cartoon-sm;
+  }
+
+  .word-accepted {
+    @apply word-badge bg-game-green text-game-purple;
+  }
+
+  .word-rejected {
+    @apply word-badge bg-game-red text-white;
+  }
+
+  .word-duplicate {
+    @apply word-badge bg-game-orange text-game-purple;
+  }
+
+  .status-pill {
+    @apply rounded-full border-[3px] border-game-purple shadow-cartoon-sm font-black;
+  }
+
+  .avatar-token {
+    @apply grid place-items-center border-[3px] border-game-purple rounded-2xl shadow-cartoon-sm bg-game-yellow;
+  }
+
+  .confetti span {
+    @apply absolute rounded-full border-2 border-game-purple;
+  }
+
+  .segmented-option {
+    @apply rounded-2xl border-[3px] border-game-purple px-4 py-2 font-black shadow-cartoon-sm transition-transform;
+    background: linear-gradient(180deg, #FFFFFF 0%, #E9D6FF 100%);
+  }
+
+  .segmented-option-selected {
+    background: linear-gradient(180deg, #FFE66E 0%, #FFD22E 100%);
+    transform: translateY(-2px);
+  }
+}

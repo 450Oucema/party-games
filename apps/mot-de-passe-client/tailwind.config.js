@@ -1,0 +1,134 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'game-bg': '#6EC6FF',
+        'game-sky': '#6EC6FF',
+        'game-cyan': '#21E0D6',
+        'game-mint': '#39E5B7',
+        'game-blue': '#2F62D9',
+        'game-violet': '#7B49FF',
+        'game-purple': '#28104B',
+        'game-ink': '#17012E',
+        'game-yellow': '#FFD94A',
+        'game-magenta': '#FF4DB8',
+        'game-lilac': '#E9D6FF',
+        'game-cream': '#FFF9F2',
+        'game-green': '#48E084',
+        'game-red': '#FF4B64',
+        'game-orange': '#FF9B52',
+      },
+      fontFamily: {
+        display: ['"Baloo 2"', '"Nunito"', 'ui-rounded', 'system-ui', 'sans-serif'],
+        game: ['"Nunito"', 'ui-rounded', 'system-ui', 'sans-serif'],
+      },
+      boxShadow: {
+        cartoon: '0 7px 0 #17012E',
+        'cartoon-sm': '0 4px 0 #17012E',
+        'cartoon-lg': '0 10px 0 #17012E',
+        tile: '0 5px 0 #17012E, inset 0 -7px 0 rgba(23,1,46,.22), inset 0 3px 0 rgba(255,255,255,.45)',
+      },
+      animation: {
+        'pop-in': 'popIn 0.22s ease-out both',
+        'bounce-in': 'popIn 0.24s ease-out both',
+        'bounce-soft': 'bounceSoft 1.25s ease-in-out infinite',
+        'score-pop': 'scorePop 0.5s ease-out forwards',
+        'shake': 'shake 0.3s ease-in-out',
+        'timer-pulse': 'timerPulse 0.75s ease-in-out infinite',
+        'timer-critical': 'timerPulse 0.45s ease-in-out infinite, timerShake 0.5s ease-in-out infinite',
+        'timer-shake': 'timerShake 0.5s ease-in-out infinite',
+        'orbit': 'orbit 4.5s linear infinite',
+        'progress-fill': 'progressFill 1.4s ease-out infinite alternate',
+        'fade-slide-up': 'fadeSlideUp 0.32s ease-out both',
+        'fade-out-up': 'fadeOutUp 0.35s ease-in both',
+        'countdown-zoom': 'countdownZoom 0.55s cubic-bezier(.22,1.5,.36,1) both',
+        'podium-entry': 'podiumEntry 0.4s ease-out both',
+        'join-flash': 'joinFlash 0.6s ease-out both',
+        'award-reveal': 'awardReveal 0.52s cubic-bezier(.22,1.5,.36,1) both',
+        'confetti-fall': 'confettiFall 2.2s ease-in both',
+        'score-count': 'scorePop 0.28s ease-out both',
+        'word-burst': 'wordBurst 0.38s cubic-bezier(.22,1.5,.36,1) both',
+      },
+      keyframes: {
+        popIn: {
+          '0%': { transform: 'scale(0.92)', opacity: '0' },
+          '70%': { transform: 'scale(1.05)', opacity: '1' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        bounceSoft: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-7px)' },
+        },
+        scorePop: {
+          '0%': { transform: 'translateY(0) scale(1)', opacity: '1' },
+          '50%': { transform: 'translateY(-30px) scale(1.3)', opacity: '1' },
+          '100%': { transform: 'translateY(-60px) scale(1)', opacity: '0' },
+        },
+        shake: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '25%': { transform: 'translateX(-5px)' },
+          '75%': { transform: 'translateX(5px)' },
+        },
+        timerPulse: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.08)' },
+        },
+        timerShake: {
+          '0%, 100%': { transform: 'translateX(0) rotate(0deg)' },
+          '15%': { transform: 'translateX(-4px) rotate(-1.5deg)' },
+          '35%': { transform: 'translateX(4px) rotate(1.5deg)' },
+          '55%': { transform: 'translateX(-3px) rotate(-0.5deg)' },
+          '75%': { transform: 'translateX(3px) rotate(0.5deg)' },
+        },
+        orbit: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        progressFill: {
+          '0%': { width: '18%' },
+          '100%': { width: '82%' },
+        },
+        fadeSlideUp: {
+          '0%': { transform: 'translateY(12px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        fadeOutUp: {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '100%': { transform: 'translateY(-16px)', opacity: '0' },
+        },
+        countdownZoom: {
+          '0%': { transform: 'scale(0.4)', opacity: '0' },
+          '55%': { transform: 'scale(1.18)', opacity: '1' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        podiumEntry: {
+          '0%': { transform: 'translateX(-24px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        joinFlash: {
+          '0%': { transform: 'scale(0.88)', opacity: '0', outline: '0px solid transparent' },
+          '50%': { transform: 'scale(1.06)', outline: '4px solid #39E5B7' },
+          '100%': { transform: 'scale(1)', opacity: '1', outline: '0px solid transparent' },
+        },
+        awardReveal: {
+          '0%': { transform: 'scale(0.65) rotate(-4deg)', opacity: '0' },
+          '62%': { transform: 'scale(1.07) rotate(1.5deg)', opacity: '1' },
+          '100%': { transform: 'scale(1) rotate(0deg)', opacity: '1' },
+        },
+        confettiFall: {
+          '0%': { transform: 'translateY(-20px) rotate(0deg)', opacity: '1' },
+          '80%': { opacity: '1' },
+          '100%': { transform: 'translateY(100vh) rotate(800deg)', opacity: '0' },
+        },
+        wordBurst: {
+          '0%': { transform: 'scale(0.5) translateY(8px)', opacity: '0' },
+          '65%': { transform: 'scale(1.1) translateY(-2px)', opacity: '1' },
+          '100%': { transform: 'scale(1) translateY(0)', opacity: '1' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}

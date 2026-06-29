@@ -1,0 +1,17 @@
+{
+  "name": "Mot de passe",
+  "short_name": "Mot de passe",
+  "description": "Duel de mots : fais deviner un mot secret à ton adversaire.",
+  "start_url": "/g/mot-de-passe/",
+  "display": "standalone",
+  "background_color": "#35BFFF",
+  "theme_color": "#28104B",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

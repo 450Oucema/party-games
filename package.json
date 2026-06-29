@@ -1,0 +1,30 @@
+{
+  "name": "party-games",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/server",
+    "apps/grille-party-client",
+    "apps/wordaily-client",
+    "apps/mot-de-passe-client"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:grille-party\" \"npm run dev:wordaily\" \"npm run dev:mot-de-passe\"",
+    "dev:server": "npm run dev --workspace=@party-games/server",
+    "dev:grille-party": "VITE_DEV_PORT=5173 npm run dev --workspace=@party-games/grille-party-client",
+    "dev:wordaily": "VITE_DEV_PORT=5174 npm run dev --workspace=@party-games/wordaily-client",
+    "dev:mot-de-passe": "VITE_DEV_PORT=5175 npm run dev --workspace=@party-games/mot-de-passe-client",
+    "build": "npm run build --workspace=@party-games/server && npm run build --workspace=@party-games/grille-party-client && npm run build --workspace=@party-games/wordaily-client && npm run build --workspace=@party-games/mot-de-passe-client",
+    "start": "npm run start --workspace=@party-games/server",
+    "test": "npm run test --workspace=@party-games/server",
+    "lint": "npm run lint --workspace=@party-games/server && npm run lint --workspace=@party-games/grille-party-client && npm run lint --workspace=@party-games/wordaily-client && npm run lint --workspace=@party-games/mot-de-passe-client"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^10.5.0",
+    "globals": "^17.6.0",
+    "typescript-eslint": "^8.61.1"
+  }
+}

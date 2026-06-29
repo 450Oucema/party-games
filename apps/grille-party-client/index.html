@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover + interactive-widget évite le saut de layout au clavier iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <!-- PWA -->
+    <meta name="theme-color" content="#28104B" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Grille Party" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <!-- SEO -->
+    <meta name="description" content="Trouve des mots dans la grille plus vite que tes amis. Rejoins la partie !" />
+    <!-- Open Graph (iOS Messages, WhatsApp, Discord…) -->
+    <meta property="og:title" content="Rejoins ma partie Grille Party 🎲" />
+    <meta property="og:description" content="Trouve des mots dans la grille plus vite que tes amis. Clique pour rejoindre !" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oucema.fr/g/grille-party/" />
+    <meta property="og:image" content="https://oucema.fr/g/grille-party/preview-banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Grille Party — jeu de mots multijoueur" />
+    <meta property="og:locale" content="fr_FR" />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rejoins ma partie Grille Party 🎲" />
+    <meta name="twitter:description" content="Trouve des mots dans la grille plus vite que tes amis." />
+    <meta name="twitter:image" content="https://oucema.fr/g/grille-party/preview-banner.png" />
+    <title>Grille Party</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

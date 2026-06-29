@@ -1,0 +1,8 @@
+.env
+node_modules
+dist
+storybook-static
+.storybook-home
+.idea
+apps/*/dist
+apps/*/node_modules
